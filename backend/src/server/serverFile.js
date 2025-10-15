@@ -1,12 +1,12 @@
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
-import connectDB from '../src/config/db.config.js';
-import connectCloudinary  from '../src/config/cludenairy.js';
-import userRouter from '../src/routes/userRoute.js';
-import productRouter from '../src/routes/productRoute.js';
-import cartRouter from '../src/routes/catRoutes.js';
-import orderRouter from '../src/routes/orderRute.js';
+import connectDB from '../config/db.config.js';
+import connectCloudinary  from '../config/cludenairy.js';
+import userRouter from '../routes/userRoute.js';
+import productRouter from '../routes/productRoute.js';
+import cartRouter from '../routes/catRoutes.js';
+import orderRouter from '../routes/orderRute.js';
 
 const server = () => {
   const app = express();
