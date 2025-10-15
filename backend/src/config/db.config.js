@@ -1,15 +1,22 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
+let isConnected = false; // track connection status
 
+const connectDB = async () => {
+  if (isConnected) {
+    return;
+  }
 
-const connectDB = async() => {
-    try {
-       await mongoose.connect(process.env.MONGO_URI);
-        console.log("Conacted TO Data Base Sucess ! ");
-        
-    } catch (error) {
-        console.log("this is not worjin");  
-    }
-}
+  try {
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    isConnected = true;
+    console.log("MongoDB connected");
+  } catch (error) {
+    console.error("MongoDB connection error:", error);
+  }
+};
 
 export default connectDB;
