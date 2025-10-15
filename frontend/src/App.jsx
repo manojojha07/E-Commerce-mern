@@ -16,7 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import PlaceOrder from './pages/PlaceOrder'
 
 
-export const backendURL = "http://localhost:3000";
+export const backendURL = "https://forever-backend-git-main-manoj-ojhas-projects.vercel.app";
 
 const App = () => {
   return (
