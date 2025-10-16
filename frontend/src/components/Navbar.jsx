@@ -37,6 +37,9 @@ const Navbar = () => {
             <p>CONTACT</p>
             <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden'  />
         </NavLink>
+        <a href="https://frover-admin-git-main-manoj-ojhas-projects.vercel.app/login"
+        className='px-4 py-2 bg-green-400 rounded-full'>
+         admin</a>
       </ul>
       <div className="flex items-center gap-6">
         <img onClick={() => setShowSearch(true)} src={assets.search_icon} className='w-5 cursor-pointer' alt="" />
@@ -80,7 +83,10 @@ const Navbar = () => {
              <NavLink onClick={()=> setVisible(false)} className='py-2 pl-6 border' to='/collection'> COLLECTION </NavLink>
              <NavLink onClick={()=> setVisible(false)} className='py-2 pl-6 border' to='/about'>ABOUT  </NavLink>
              <NavLink onClick={()=> setVisible(false)} className='py-2 pl-6 border' to='/contact'> CONTACT </NavLink>
-        </div>
+<a href="https://frover-admin-git-main-manoj-ojhas-projects.vercel.app/login" 
+className='px-4 py-2 bg-green-400 rounded-full'
+target='blank'>admin</a>      
+  </div>
       </div>
     </div>
   )
