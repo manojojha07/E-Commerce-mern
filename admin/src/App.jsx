@@ -7,6 +7,8 @@ import AddItems from './pages/AddItems';
 import ListItems from './pages/ListItems';
 import Orders from './pages/Orders';
 import Login from './components/Login';
+import dotenv from 'dotenv'
+
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

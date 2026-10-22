@@ -11,7 +11,7 @@ import axios from 'axios';
 
 
 const Login = ({ setToken }) => {
-    const [email, setEmail] = useState('admin@forever.com');
+    const [email, setEmail] = useState('priyansh@gmail.com');
     const [password, setPassword] = useState('qwerty123');
     const [loading, setLoading] = useState(false);
 
@@ -21,7 +21,8 @@ const Login = ({ setToken }) => {
         try {
             let response = await login_Admin(email, password);
 
-            if (response.success) {            
+            if (response.success) {      
+                toast.success(response.message)    
                 setToken(response.token);        
             } else {
                 toast.error(response.message);

@@ -7,7 +7,7 @@ const addToCart = async (req, res) => {
         const { userId, itemId, size } = req.body;
 
         const userData = await userModel.findById(userId);
-        let cartData = await userData.cartData;
+        let cartData = await userData.cartData || {};
 
         if (cartData[itemId]) {
             if (cartData[itemId][size]) {
@@ -27,10 +27,15 @@ const addToCart = async (req, res) => {
     } catch (error) {
 
         console.log(error);
-        res.json({ success: false, message: error.message })
+        res.json({ success: false, message: error.message });
+        console.log(
+            "Cart API error:",
+            error.response?.data || error.message
+        );
 
     }
 }
+
 const updateCart = async (req, res) => {
     try {
         const { userId, itemId, size, quantity } = req.body;
@@ -40,20 +45,32 @@ const updateCart = async (req, res) => {
 
         cartData[itemId][size] = quantity;
         await userModel.findByIdAndUpdate(userId, { cartData });
-        res.json({ success: true, message: "updateed cart  " })
+        res.json({ success: true, message: "updateed cart  " });
+        console.log("USER ID:", userId);
+
+        console.log("USER FOUND:", userData?._id);
+        console.log("CART BEFORE SAVE:", cartData);
 
     } catch (error) {
 
         console.log(error);
-        res.json({ success: false, message: error.message })
+        res.json({ success: false, message: error.message });
+
     }
 
 }
+
 const getUserCart = async (req, res) => {
     try {
         const { userId } = req.body;
 
         const userData = await userModel.findById(userId);
+        if (!userData) {
+            return res.status(404).json({
+                success: false,
+                message: "User not found"
+            });
+        }
         let cartData = await userData.cartData;
 
         res.json({ success: true, cartData })

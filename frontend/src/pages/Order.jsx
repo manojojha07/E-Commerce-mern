@@ -51,7 +51,7 @@ loadOrderData()  },[token])
               <div>
                 <p className='sm:text-base font-medium'>{item.name}</p>
                 <div className="flex items-center gap-3 mt-1 text-gray-700 text-base">
-                  <p>{currency} {item.price}</p>
+                  <p>{currency} {item.price * item.quantity}</p>
                   <p>Quantity: {item.quantity}</p>
                   <p>Size: { item.size} </p>
                 </div>

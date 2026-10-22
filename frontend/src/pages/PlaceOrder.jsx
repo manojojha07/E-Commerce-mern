@@ -17,13 +17,13 @@ const PlaceOrder = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    email: " ",
-    street: ' ',
-    city: ' ',
-    state: ' ',
-    zipcode: ' ',
-    country: ' ',
-    phone: ' '
+    email: "",
+    street: '',
+    city: '',
+    state: '',
+    zipcode: '',
+    country: '',
+    phone: ''
   })
 
   const onChangeHndler = (event) => {
@@ -126,13 +126,13 @@ const PlaceOrder = () => {
         />
 
         <input required onChange={onChangeHndler} name='street' value={formData.street}
-          className='w-full border border-gray-300 rounded py-1.5 px-3.5'
+          className='w-full border placeholder-gray-400 border-gray-300 rounded py-1.5 px-3.5'
           type="text"
           placeholder="Street"
         />
         <div className="flex gap-3">
           <input required onChange={onChangeHndler} name='city' value={formData.city}
-            className='w-full border border-gray-300 rounded py-1.5 px-3.5'
+            className='w-full border border-gray-300 placeholder-gray-400 rounded py-1.5 px-3.5'
             type="text"
             placeholder=" City"
           />

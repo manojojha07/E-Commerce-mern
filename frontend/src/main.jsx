@@ -9,9 +9,9 @@ import { StrictMode } from 'react'
 createRoot(document.getElementById('root')).render(
    <BrowserRouter>
   <ShopContextProvider>
-    <StrictMode>
+    
 <App />
-    </StrictMode>
+    
      
    </ShopContextProvider> 
    </BrowserRouter>, 

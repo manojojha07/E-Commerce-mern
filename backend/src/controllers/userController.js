@@ -53,7 +53,10 @@ const loginUser = async (req, res) => {
   const isMatch = await bcrypt.compare(password, user.password);
 
   if (isMatch) {
-    const token = createToken(user._id);
+    const token = jwt.sign(
+    { id: user._id },
+    process.env.JWT_SECRET
+);
     return res.status(200).json({ success: true, token, message: "User Login Success Full" });
   } else {
     return res.json({ success: false, message: "Invalid Credentials" });
@@ -70,7 +73,7 @@ const adminLogin = async (req, res) => {
         
    if(email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD){
         const token= jwt.sign(email+password, process.env.JWT_SECRATE);
-        res.json({success:true , token })
+        res.json({success:true, message:"Login SuccessFul" , token })
    }else{
      res.json({success:false , message: "Invalid Credentials " })
    }
