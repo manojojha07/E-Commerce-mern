@@ -16,7 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import PlaceOrder from './pages/PlaceOrder'
 
 
-export const backendURL = "http://localhost:3000";
+export const backendURL = "https://e-commerce-mern-lbyx.onrender.com";
 
 const App = () => {
   return (
